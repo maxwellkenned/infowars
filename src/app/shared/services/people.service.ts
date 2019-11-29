@@ -26,39 +26,41 @@ export class PeopleService {
 
   public getPeopleList(url?: string): Observable<PeopleList> {
     const urlRequest = url || `${config.baseURL}people/`;
-    return this.http.get(urlRequest).pipe(
-      map(data => deserialize(PeopleList, data)),
-      map((data: PeopleList) => {
-        data.peoples.map((people: People) => {
-          // this.googleSearchService.searchImage(people.name).then(res => people.image = res);
-          this.getDataByUrl(people.homeworld, Planet).subscribe((res: any) => people.homeworld = res.name);
 
-          people.species.map((url, i) => {
-            return this.getDataByUrl(url, Specie).subscribe(res => people.species[i] = res);
+    return this.http.get<PeopleList>(urlRequest)
+      .pipe(
+        map(data => deserialize(PeopleList, data)),
+        map((data: PeopleList) => {
+          data.peoples.map((people: People) => {
+            this.googleSearchService.searchImage(people.name).subscribe(res => people.image = res);
+            this.getDataByUrl(people.homeworld, Planet).subscribe((res: any) => people.homeworld = res.name);
+
+            people.species.map((url, i) => {
+              return this.getDataByUrl(url, Specie).subscribe(res => people.species[i] = res);
+            });
+
+            people.starships.map((url, i) => {
+              return this.getDataByUrl(url, Starship).subscribe(res => people.starships[i] = res);
+            });
+
+            people.films.map((url, i) => {
+              return this.getDataByUrl(url, Film).subscribe(res => people.films[i] = res);
+            });
+
+            people.vehicles.map((url, i) => {
+              return this.getDataByUrl(url, Vehicle).subscribe(res => people.vehicles[i] = res);
+            });
+
+            return people;
           });
 
-          people.starships.map((url, i) => {
-            return this.getDataByUrl(url, Starship).subscribe(res => people.starships[i] = res);
-          });
-
-          people.films.map((url, i) => {
-            return this.getDataByUrl(url, Film).subscribe(res => people.films[i] = res);
-          });
-
-          people.vehicles.map((url, i) => {
-            return this.getDataByUrl(url, Vehicle).subscribe(res => people.vehicles[i] = res);
-          });
-
-          return people;
-        });
-
-        return data;
-      }));
+          return data;
+        }));
   }
 
   public getDataByUrl(url: string, type): Observable<any> {
     return this.http.get(url).pipe(
       map(data => deserialize(type, data))
-      );
+    );
   }
 }

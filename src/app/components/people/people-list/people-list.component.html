@@ -30,47 +30,27 @@
       </li>
       <li class="list-group-item">
         <h5 class="card-subtitle m-1">Specie:</h5>
-        <app-accordion *ngFor="let specie of species; let i = index" [dataObject]="specie" idName="specie">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <h5 class="card-subtitle m-1">Classification: {{specie.classification}}</h5>
-            </li>
-            <li class="list-group-item">
-              <h5 class="card-subtitle m-1">Designation: {{specie.designation}}</h5>
-            </li>
-            <li class="list-group-item">
-              <h5 class="card-subtitle m-1">Average height: {{specie.average_height}}</h5>
-            </li>
-            <li class="list-group-item">
-              <h5 class="card-subtitle m-1">Skin colors: {{specie.skin_colors}}</h5>
-            </li>
-            <li class="list-group-item">
-              <h5 class="card-subtitle m-1">Hair colors: {{specie.hair_colors}}</h5>
-            </li>
-            <li class="list-group-item">
-              <h5 class="card-subtitle m-1">Eye colors: {{specie.eye_colors}}</h5>
-            </li>
-            <li class="list-group-item">
-              <h5 class="card-subtitle m-1">Average lifespan: {{specie.average_lifespan}}</h5>
-            </li>
-            </li>
-            <li class="list-group-item">
-              <h5 class="card-subtitle m-1">Language: {{specie.language}}</h5>
-            </li>
-          </ul>
+        <app-accordion *ngFor="let specie of species; let i = index" [title]="specie.name" [index]="i" idName="specie">
+          <app-specie-list [specie]="specie"></app-specie-list>
         </app-accordion>
       </li>
       <li class="list-group-item">
         <h5 class="card-subtitle m-1">Starships:</h5>
-        <app-accordion [arrData]="starships" idName="starship"></app-accordion>
+        <app-accordion *ngFor="let starship of starships; let i = index" [title]="starship.name" [index]="i" idName="starship">
+          <app-starship-list [starship]="starship"></app-starship-list>
+        </app-accordion>
       </li>
       <li class="list-group-item">
         <h5 class="card-subtitle m-1">Films:</h5>
-        <app-accordion [arrData]="films" idName="film"></app-accordion>
+        <app-accordion *ngFor="let film of films; let i = index" [title]="film.title" [index]="i" idName="film">
+          <app-film-list [film]="film"></app-film-list>
+        </app-accordion>
       </li>
       <li class="list-group-item">
         <h5 class="card-subtitle m-1">Vehicles:</h5>
-        <app-accordion [arrData]="vehicles" idName="vehicle"></app-accordion>
+        <app-accordion *ngFor="let vehicle of vehicles; let i = index" [title]="vehicle.name" [index]="i" idName="vehicle">
+          <app-vehicle-list [vehicle]="vehicle"></app-vehicle-list>
+        </app-accordion>
       </li>
     </ul>
   </div>

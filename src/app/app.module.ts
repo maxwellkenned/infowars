@@ -7,11 +7,12 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PeopleComponent } from './components/people/people.component';
-import { SpinnerComponent } from './shared/components/spinner/spinner.component';
-import { ButtonToTopComponent } from './shared/components/button-to-top/button-to-top.component';
-import { ModalComponent } from './shared/components/modal/modal.component';
-import { PeopleModalComponent } from './components/people/people-model/people-modal.component';
-import { AccordionComponent } from './shared/components/accordion/accordion.component';
+import { PeopleListComponent } from './components/people/people-list/people-list.component';
+import { SharedModule } from './shared/shared.module';
+import { SpecieListComponent } from './components/specie/specie-list/specie-list.component';
+import { StarshipListComponent } from './components/starship/starship-list/starship-list.component';
+import { FilmListComponent } from './components/film/film-list/film-list.component';
+import { VehicleListComponent } from './components/vehicle/vehicle-list/vehicle-list.component';
 
 @NgModule({
   declarations: [
@@ -19,16 +20,17 @@ import { AccordionComponent } from './shared/components/accordion/accordion.comp
     MainComponent,
     PageNotFoundComponent,
     PeopleComponent,
-    SpinnerComponent,
-    ButtonToTopComponent,
-    ModalComponent,
-    PeopleModalComponent,
-    AccordionComponent
+    PeopleListComponent,
+    SpecieListComponent,
+    StarshipListComponent,
+    FilmListComponent,
+    VehicleListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

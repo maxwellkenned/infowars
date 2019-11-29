@@ -8,11 +8,10 @@ import { Vehicle } from 'src/app/shared/models/vehicle.model';
 declare var $;
 
 @Component({
-  selector: 'app-people-modal',
-  templateUrl: './people-modal.component.html',
-  styleUrls: ['./people-modal.component.scss']
+  selector: 'app-people-list',
+  templateUrl: './people-list.component.html'
 })
-export class PeopleModalComponent implements OnInit {
+export class PeopleListComponent implements OnInit {
   private _people: People;
 
   constructor(private peopleService: PeopleService) { }
@@ -56,7 +55,7 @@ export class PeopleModalComponent implements OnInit {
   }
 
   /**
-   * 
+   *
    * @param people People
    */
   public openModal(people: People) {

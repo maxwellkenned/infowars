@@ -7,8 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AccordionComponent implements OnInit {
 
-  @Input() dataObject: any[];
+  @Input() title: any[];
   @Input() idName: string;
+  @Input() index: number;
 
   constructor() { }
 
