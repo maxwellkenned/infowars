@@ -1,0 +1,85 @@
+<app-modal [idModal]="modal-people" [titleModal]="people?.name">
+    <div *ngIf="people" class="p-3">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-secondary">
+                <img src="{{ people.image }}" class="img-fluid img-thumbnail w-100" alt="{{ people.name }}">
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-subtitle m-1">Height: {{people.height}}</h5>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-subtitle m-1">Mass: {{people.mass}}</h5>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-subtitle m-1">Hair color: {{people.hair_color}}</h5>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-subtitle m-1">Skin color: {{people.skin_color}}</h5>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-subtitle m-1">Eye color: {{people.eye_color}}</h5>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-subtitle m-1">Birth year: {{people.birth_year}}</h5>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-subtitle m-1">Gender: {{people.gender}}</h5>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-subtitle m-1">Homeworld: {{people.homeworld}}</h5>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-subtitle m-1">Specie:</h5>
+                <div *ngFor="let specie of species; let i = index" class="accordion" id="accordion">
+                    <a class="btn btn-link" href="#{{'specie' + (i+1)}}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                {{ specie.name }}
+                            </a>
+                    <div id="{{'specie' + (i+1)}}" class="collapse">
+                        <div class="card-body">
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-subtitle m-1">Starships:</h5>
+                <div *ngFor="let starship of starships; let i = index" class="accordion" id="accordion">
+                    <a class="btn btn-link" href="#{{'starship' + (i+1)}}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            {{ starship.name }}
+                        </a>
+                    <div id="{{'starship' + (i+1)}}" class="collapse">
+                        <div class="card-body">
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-subtitle m-1">Films:</h5>
+                <div *ngFor="let film of films; let i = index" class="accordion" id="accordion">
+                    <a class="btn btn-link" href="#{{'film' + (i+1)}}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        {{ film.title }}
+                    </a>
+                    <div id="{{'film' + (i+1)}}" class="collapse">
+                        <div class="card-body">
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-subtitle m-1">Vehicles:</h5>
+                <div *ngFor="let vehicle of vehicles; let i = index" class="accordion" id="accordion">
+                    <a class="btn btn-link" href="#{{'vehicle' + (i+1)}}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            {{ vehicle.name }}
+                        </a>
+                    <div id="{{'vehicle' + (i+1)}}" class="collapse">
+                        <div class="card-body">
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</app-modal>

@@ -1,0 +1,38 @@
+#button {
+    display: inline-block;
+    background-color: #ffe700;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#button::after {
+    content: "\02C4";
+    font-weight: bold;
+    font-style: normal;
+    font-size: 2.5em;
+    line-height: 50px;
+    color: rgba(0, 0, 0, 0.705);
+}
+
+#button:hover {
+    cursor: pointer;
+    background-color: #d4bf01;
+}
+
+#button:active {
+    background-color: #a09000;
+}
+
+#button.show {
+    opacity: 1;
+    visibility: visible;
+}
