@@ -34,8 +34,7 @@ export class PeopleComponent implements OnInit {
   }
 
   private getPeoples(urls?: string) {
-    this.peopleService.getPeopleList(urls)
-      .then((data) => {
+    this.peopleService.getPeopleList(urls).subscribe((data) => {
         this._peopleList = data;
         this._peoples = this._peoples.concat(data.peoples);
       });

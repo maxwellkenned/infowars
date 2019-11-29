@@ -11,6 +11,7 @@ import { SpinnerComponent } from './shared/components/spinner/spinner.component'
 import { ButtonToTopComponent } from './shared/components/button-to-top/button-to-top.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { PeopleModalComponent } from './components/people/people-model/people-modal.component';
+import { AccordionComponent } from './shared/components/accordion/accordion.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PeopleModalComponent } from './components/people/people-model/people-mo
     SpinnerComponent,
     ButtonToTopComponent,
     ModalComponent,
-    PeopleModalComponent
+    PeopleModalComponent,
+    AccordionComponent
   ],
   imports: [
     BrowserModule,

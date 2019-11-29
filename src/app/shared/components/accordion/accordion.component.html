@@ -1,0 +1,11 @@
+<div class="accordion" id="accordion">
+  <a class="btn btn-link" href="#{{ idName + (i+1)}}" data-toggle="collapse" role="button" aria-expanded="false"
+    aria-controls="collapseExample">
+    {{ dataObject.name || dataObject.title }}
+  </a>
+  <div id="{{ idName + (i+1)}}" class="collapse">
+    <div class="card-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
