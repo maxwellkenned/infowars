@@ -23,6 +23,6 @@ export class GoogleSearchService {
       }
     }).pipe(
       map((data: any): string => data.items[0].image.thumbnailLink || '')
-    )
+    );
   }
 }

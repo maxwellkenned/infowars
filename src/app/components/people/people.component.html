@@ -1,32 +1,30 @@
 <div [ngClass]="{'spinner-center': !peoples.length}">
-  <app-spinner  [onSpinner]="!peoples.length"></app-spinner>
+    <app-spinner [onSpinner]="!peoples.length"></app-spinner>
 </div>
 <div *ngIf="peoples.length" class="jumbotron shadow-sm bg-light text-center mt-4">
-  <h1>Characters List</h1>
+    <h1>Characters List</h1>
 </div>
 <app-button-to-top></app-button-to-top>
 <div class="row">
-  <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-3" *ngFor="let people of peoples">
-    <div id="card-people" class="card text-center" (click)="peopleList.openModal(people)">
-      <app-spinner class="card-img-top" [ngClass]="{'p-4': !people.image}" [onSpinner]="!people.image"
-        [numberSpinner]="1"></app-spinner>
-      <img *ngIf="people.image" src="{{ people.image }}" height="100px" class="card-img-top img-fluid"
-        alt="{{ people.name }}">
-      <div class="card-body text-left m-2 p-2 text-muted">
-        <h4 class="card-title mb-2">{{people.name}}</h4>
-        <h6 class="card-subtitle mb-2">Height: {{people.height}}</h6>
-        <h6 class="card-subtitle mb-2">Mass: {{people.mass}}</h6>
-        <h6 class="card-subtitle mb-2">Hair color: {{people.hair_color}}</h6>
-        <h6 class="card-subtitle mb-2">Skin color: {{people.skin_color}}</h6>
-        <h6 class="card-subtitle mb-2">Eye color: {{people.eye_color}}</h6>
-        <h6 class="card-subtitle mb-2">Birth Year: {{people.birth_year}}</h6>
-        <h6 class="card-subtitle mb-2">Gender: {{people.gender}}</h6>
-      </div>
-      <div class="card-footer text-muted">
-        <button type=" button " class="btn btn-link card-link ">Show more</button>
-      </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-3" *ngFor="let people of peoples">
+        <div id="card-people" class="card text-center" (click)="peopleList.openModal(people)">
+            <app-spinner class="card-img-top" [ngClass]="{'p-4': !people.image}" [onSpinner]="!people.image" [numberSpinner]="1"></app-spinner>
+            <img *ngIf="people.image" src="{{ people.image }}" class="card-img-top img-fluid" alt="{{ people.name }}">
+            <div class="card-body text-left m-2 p-2 text-muted">
+                <h4 class="card-title mb-2">{{people.name}}</h4>
+                <h6 class="card-subtitle mb-2">Height: {{people.height}}</h6>
+                <h6 class="card-subtitle mb-2">Mass: {{people.mass}}</h6>
+                <h6 class="card-subtitle mb-2">Hair color: {{people.hair_color}}</h6>
+                <h6 class="card-subtitle mb-2">Skin color: {{people.skin_color}}</h6>
+                <h6 class="card-subtitle mb-2">Eye color: {{people.eye_color}}</h6>
+                <h6 class="card-subtitle mb-2">Birth Year: {{people.birth_year}}</h6>
+                <h6 class="card-subtitle mb-2">Gender: {{people.gender}}</h6>
+            </div>
+            <div class="card-footer text-muted">
+                <button type=" button " class="btn btn-link card-link ">Show more</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <app-people-list #peopleList></app-people-list>
