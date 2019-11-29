@@ -23,11 +23,11 @@ describe('PageNotFoundComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render 404 not found', () => {
+  it('should render 404 page found not', () => {
     fixture = TestBed.createComponent(PageNotFoundComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
 
-    expect(compiled.querySelector('.center h1').textContent).toContain('404 Page Not Found');
+    expect(compiled.querySelector('main .row h1').textContent).toContain('404 page found not');
   });
 });

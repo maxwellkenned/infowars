@@ -13,6 +13,13 @@ module.exports = function(config) {
             require('@angular-devkit/build-angular/plugins/karma')
         ],
         client: {
+            jasmine: {
+              random: false,
+              seed: '4321',
+              oneFailurePerSpec: false,
+              failFast: false,
+              timeoutInterval: 5000
+            },
             clearContext: false // leave Jasmine Spec Runner output visible in browser
         },
         coverageIstanbulReporter: {
@@ -27,6 +34,6 @@ module.exports = function(config) {
         autoWatch: true,
         browsers: ['Chrome'],
         singleRun: false,
-        restartOnFileChange: true
+        restartOnFileChange: true,
     });
 };

@@ -1,29 +1,31 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { PeopleService } from './people.service';
+import { PeopleList } from '../models/people-list.model';
+import { Observable } from 'rxjs';
 
 describe('PeopleService', () => {
-  let service: PeopleService;
-  let httpMock: HttpTestingController;
+  let peopleService: PeopleService;
+  let httpClientSpy: {get: jasmine.Spy};
+  let googleSearchServiceSpy: {get: jasmine.Spy};
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [PeopleService]
-    });
-
-    service = TestBed.get(PeopleService);
-    httpMock = TestBed.get(HttpTestingController);
+    googleSearchServiceSpy = jasmine.createSpyObj('GoogleSearchService', ['searchImage']);
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get', 'pipe']);
+    peopleService = new PeopleService(<any> httpClientSpy, <any> googleSearchServiceSpy);
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(peopleService).toBeTruthy();
   });
 
   it('should return a PeopleList object', () => {
-    service.getPeopleList().subscribe((res) => {
-      expect(res).toBeTruthy();
+    const expectedPeopleList: PeopleList = new PeopleList();
+
+    httpClientSpy.get.and.returnValue(expectedPeopleList);
+
+    peopleService.getPeopleList().subscribe((res) => {
+        expect(res).toBe(new PeopleList());
     });
   });
 });

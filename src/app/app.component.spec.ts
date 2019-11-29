@@ -23,13 +23,6 @@ describe('AppComponent', () => {
   it(`should have as title 'infowars'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('infowars');
+    expect(app.title).toEqual('InfoWars');
   });
-
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('app-main p').textContent).toContain('works!');
-  // });
 });
