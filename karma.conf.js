@@ -14,11 +14,11 @@ module.exports = function(config) {
         ],
         client: {
             jasmine: {
-              random: false,
-              seed: '4321',
-              oneFailurePerSpec: false,
-              failFast: false,
-              timeoutInterval: 5000
+                random: false,
+                seed: '4321',
+                oneFailurePerSpec: false,
+                failFast: false,
+                timeoutInterval: 5000
             },
             clearContext: false // leave Jasmine Spec Runner output visible in browser
         },
@@ -35,5 +35,12 @@ module.exports = function(config) {
         browsers: ['Chrome'],
         singleRun: false,
         restartOnFileChange: true,
+        browsers: ['Chrome'],
+        customLaunchers: {
+            ChromeHeadlessCI: {
+                base: 'ChromeHeadless',
+                flags: ['--no-sandbox']
+            }
+        },
     });
 };
