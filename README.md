@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/maxwellkenned/infowars.svg?branch=master)](https://travis-ci.org/maxwellkenned/infowars)
+
 # InfoWars
 
 This project will show some information about the Star Wars characters.
